@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-image: url("../img.jpg");
+background-repeat: no-repeat;
+background-position: 0% 100%;
+background-attachment: fixed;
+background-size: 1100px 500px;
+
+font-family: "Lato", sans-serif;}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: green;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 150px;
+}
+#mySidenav
+{
+background-color: grey;
+margin-left: 600px;
+margin-top: 200px;
+height: 150px;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+ 
+/* Style the tab */
+div.tab {
+margin-left: 250px;
+width: 50%;
+float: center;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: gray;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    font-color: red;
+margin-left: 50px;
+
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-color: white;
+}
+p,h3
+{
+color: black;
+font-size: 20px;
+}
+span:hover{
+    background-color: #ddd;
+}
+
+.topright:hover {color: black;}
+
+
+</style>
+</head>
+<body>
+
+<img src="../image.jpg" alt="Mountain View" style="width:500px;height:150px;margin-left:270px;">
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'About')">About</button>
+  <button class="tablinks" onclick="openCity(event, 'News')">News</button>
+  <button class="tablinks" onclick="openCity(event, 'History')">History</button>
+  <button class="tablinks" onclick="openCity(event, 'Contact')">Contact</button>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<div id="Home" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="News" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+<div id="History" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+  <h3>Our history is</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+<div id="Contact" class="tabcontent">
+  <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+  <h3>Tokyo</h3>
+  <p>Please contact us</p>
+</div>
+
+
+<script>
+function openNav()
+ {
+
+    document.getElementById("mySidenav").style.width = "150px";
+
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+     
+</body>
+</html> 
