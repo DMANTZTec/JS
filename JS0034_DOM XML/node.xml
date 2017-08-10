@@ -1,0 +1,25 @@
+
+
+
+<Company> 
+   <Employee category = "Technical" id = "firstelement"> 
+      <FirstName>Tanmay</FirstName> 
+      <LastName>Patil</LastName> 
+      <ContactNo>1234567890</ContactNo> 
+      <Email>tanmaypatil@xyz.com</Email> 
+   </Employee>  
+   
+   <Employee category = "Non-Technical"> 
+      <FirstName>Taniya</FirstName> 
+      <LastName>Mishra</LastName> 
+      <ContactNo>1234667898</ContactNo> 
+      <Email>taniyamishra@xyz.com</Email> 
+   </Employee>  
+   
+   <Employee category = "Management"> 
+      <FirstName>Tanisha</FirstName> 
+      <LastName>Sharma</LastName> 
+      <ContactNo>1234562350</ContactNo> 
+      <Email>tanishasharma@xyz.com</Email> 
+   </Employee> 
+</Company> 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         function loadXMLDoc(filename)
+ {
+            if (window.XMLHttpRequest)
+{
+               xhttp = new XMLHttpRequest();
+            } 
+else // code for IE5 and IE6 
+{
+                xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.open("GET","node.xml"5,false);
+            xhttp.send();
+            return xhttp.responseXML;
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+var x;
+         xmlDoc = loadXMLDoc("/dom/node.xml");
+
+         x = xmlDoc.getElementsByTagName("FirstName")[0];
+
+         document.write("<b>Text node of child node before removal is:</b> ");
+         document.write(x.childNodes.length);
+         document.write("<br>");
+
+         y = x.childNodes[0];
+         x.removeChild(y);
+         document.write("<b>Text node of child node after removal is:</b> ");
+         document.write(x.childNodes.length);
+
+      </script>
+   </body>
+</html>

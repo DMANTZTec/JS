@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         function loadXMLDoc(filename)
+ {
+            if (window.XMLHttpRequest) 
+{
+               xhttp = new XMLHttpRequest();
+            } 
+else // code for IE5 and IE6
+ {
+               xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.open("GET","node.xml",false);
+            xhttp.send();
+            return xhttp.responseXML;
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+var x;
+         xmlDoc = loadXMLDoc("/dom/node.xml");
+
+         document.write("<b>Before remove operation, total ContactNo elements: </b>");
+         document.write(xmlDoc.getElementsByTagName("ContactNo").length);
+         document.write("<br>");
+
+         x = xmlDoc.getElementsByTagName("ContactNo")[0];
+         x.parentNode.removeChild(x);
+
+         document.write("<b>After remove operation, total ContactNo elements: </b>");
+         document.write(xmlDoc.getElementsByTagName("ContactNo").length);
+      </script>
+   </body>
+</html>

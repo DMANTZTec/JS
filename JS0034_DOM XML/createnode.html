@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script>
+         function loadXMLDoc(filename) {
+            if (window.XMLHttpRequest) {
+               xhttp = new XMLHttpRequest();
+            } 
+else // code for IE5 and IE6
+ {
+               xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xhttp.open("GET","node.xml",false);
+            xhttp.send();
+            return xhttp.responseXML;
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+       var x;
+         xmlDoc = loadXMLDoc("/dom/node.xml");
+
+         new_element = xmlDoc.createElement("PhoneNo");
+
+         x = xmlDoc.getElementsByTagName("FirstName")[0];
+         x.appendChild(new_element);
+
+         document.write(x.getElementsByTagName("PhoneNo")[0].nodeName);
+      </script>
+   </body>
+</html>
