@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    </head>
+    <body>
+<div>
+<a class="add-to-cart" href="#" data-name="Apple" data-price="1.22" style=""><img src="../search.jpg" style="width: 50px; height: 50px;">Apple $1.22</a><br/>
+<a class="add-to-cart" href="#" data-name="Bag" data-price="1.33"><img src="../bag.jpg" style="width: 50px; height: 50px;">Bag $1.33</a><br/>
+<a class="add-to-cart" href="#" data-name="Shoe" data-price="22.33"><img src="../shoe.jpg" style="width: 50px; height: 50px;">Shoe $22.33</a><br/>
+<a class="add-to-cart" href="#" data-name="Frisbee" data-price="5.22"><img src="../search.jpg" style="width: 50px; height: 50px;">Frisbee $5.22</a><br/>
+
+</div>
+<a href="#" class="cart-item" style=""><img src="../search.jpg" style="width: 50px; height: 50px;" onclick="displayCart()">Cart</a>
+            <ul id="show-cart"></ul>
+            <div>You have <span id="count-cart">X</span> items in your cart</div>
+            <div>Total Cart cost:$<span id="total-cart"></span></div>
+        <button id='clear-cart'>Clear Cart</button>
+        <script src="shopping.js"></script>
+        <script>
+            function displayCart() 
+            {
+               
+                var cartArray = shoppingCart.listCart();   
+                var output = "";
+
+                for (var i in cartArray) 
+                {
+                    output += "<li>"
+                        +cartArray[i].name
+                        +" <input class='item-count' type='number' data-name='"
+                        +cartArray[i].name
+                        +"' value='"+cartArray[i].count+"' >"
+                        
+                        +"cost of items is"+cartArray[i].total
+                        +" <button class='plus-item' data-name='"
+                        +cartArray[i].name+"'>+</button>"
+                        +" <button class='subtract-item' data-name='"
+                        +cartArray[i].name+"'>-</button>"
+                        +" <button class='delete-item' data-name='"
+                        +cartArray[i].name+"'>X</button>"
+                        +"</li>";
+
+                }
+
+                $("#show-cart").html("Your cart:"+output);
+                $("#count-cart").html(shoppingCart.countCart() );
+                $("#total-cart").html( shoppingCart.totalCart() );
+            }
+
+
+$(".cart-item").click(function(event)
+{
+event.preventDefault();
+displayCart();
+});
+           $(".add-to-cart").click(function(event)
+           {
+                event.preventDefault();
+                var name = $(this).attr("data-name");
+                var price = Number($(this).attr("data-price"));
+                shoppingCart.addItemToCart(name, price, 1);
+                //displayCart();
+            });
+            $("#clear-cart").click(function(event)
+            {
+                shoppingCart.clearCart();
+                displayCart();
+            });
+            $("#show-cart").on("click", ".delete-item", function(event)
+            {
+                var name = $(this).attr("data-name");
+                shoppingCart.removeItemFromCartAll(name);
+                displayCart();
+            });
+            $("#show-cart").on("click", ".subtract-item", function(event)
+            {
+                var name = $(this).attr("data-name");
+                shoppingCart.removeItemFromCart(name);
+                displayCart();
+            });
+            $("#show-cart").on("click", ".plus-item", function(event)
+            {
+                var name = $(this).attr("data-name");
+                shoppingCart.addItemToCart(name, 0, 1);
+                displayCart();
+            });
+            $("#show-cart").on("change", ".item-count", function(event)
+            {
+                var name = $(this).attr("data-name");
+                var count = Number($(this).val());
+                shoppingCart.setCountForItem(name,count);
+                displayCart();
+            });
+
+            //displayCart();
+        </script>
+    </body>
+</html>

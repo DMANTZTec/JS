@@ -1,0 +1,26 @@
+<html>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).on("click", function(e){
+    if($(e.target).is("#period_select_range_btn")){
+      $("#selectPeriodRangePanel").show();
+    }else{
+        $("#selectPeriodRangePanel").hide();
+    }
+});
+</script>
+<div id="selectPeriodRangePanel" style="display:none">
+   <form>
+    <input type="text">
+    <select>education<option>btech</option></select>
+    <select>salary<option>3</option></select>
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    </form>
+</div>
+<button id="period_select_range_btn">Select Range</button>
+
+</body>
+</html>
