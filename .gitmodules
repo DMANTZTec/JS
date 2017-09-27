@@ -1,0 +1,3 @@
+[submodule "Cookie"]
+	path = Cookie
+	url = https://github.com/DMANTZTec/JS.git
