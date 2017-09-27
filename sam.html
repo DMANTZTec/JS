@@ -1,0 +1,32 @@
+<html>
+<body>
+<script> 
+    function show() { 
+        if(document.getElementById('benefits').style.display=='none') { 
+            document.getElementById('benefits').style.display='block';
+            document.getElementById('benefits').style.select='option';
+
+        } 
+        return false;
+    } 
+    function hide() { 
+        if(document.getElementById('benefits').style.display=='block') { 
+            document.getElementById('benefits').style.display='none'; 
+        } 
+        return false;
+    }   
+</script> 
+
+
+ <div id="opener"><a href="#1" name="1" onmouseover="return show()" onmouseout="return hide()">click here</a></div> 
+    <div id="benefits" style="display:none;">
+
+    <select style="width:100px;height: 150px; background-color: gray; float: left">
+    <option value="Home"><a href="#home">Home</a></option><br/>
+    <option value="About"><a href="#about">About</a></option><br/>
+    <option value="Contact"><a href="#contact">Contact</a></option> <br/>  
+    </select>
+
+    </div> 
+</body>
+</html>
