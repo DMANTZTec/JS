@@ -1,0 +1,7 @@
+To check the scheduling jobs in JobStore
+
+To use JDBCJobstore then 
+Create a Database ex:quartz
+Create tables (which  are provided in docs/dbTables/tables_hsqldb.sql)
+Then use properties to run scheduler 
+ 
