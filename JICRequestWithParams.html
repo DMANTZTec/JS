@@ -1,0 +1,37 @@
+<html>
+<body>
+<form>
+<input type="hidden" id="i"/>
+<input type="text" id="userinput"/>
+<button type="button" onclick="loadDoc()">Submit</button>
+</form>
+<p id="demo"></p>
+<script>
+function loadDoc()
+ {
+  var xhttp = new XMLHttpRequest();
+ var params = {input:document.getElementById("userinput").value,operation:document.getElementById("i").value};
+  var p=JSON.stringify(params);
+  var url="http://192.168.100.10:8085/JobInfoCenter3/JicController.java";
+  xhttp.onreadystatechange = function() 
+  {
+    if ((this.readyState == 4) && (this.status == 200))
+     {
+      var my=JSON.parse(this.responseText);
+      for(i=0;i<my.length;i++)
+      {
+      document.getElementById('demo').innerHTML+=my[i].ID+"<br/>";
+      document.getElementById('demo').innerHTML+=my[i].Jobtitle+"<br/>";
+      document.getElementById('demo').innerHTML+=my[i].Education+"<br/>";
+      document.getElementById('demo').innerHTML+=my[i].Salary+"<br/>";
+     }
+  }
+  };
+  xhttp.open("GET", "url", true);
+  xhttp.send(p);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+}
+</script>
+
+</body>
+</html>

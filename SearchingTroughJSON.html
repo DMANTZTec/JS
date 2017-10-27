@@ -1,0 +1,95 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+var mySet = [
+            {
+                "ID": "1",
+                "Jobtitle": "SoftwareEngineer",
+                "Education": "B.tech",
+                "Salary": "5lpa"
+            },
+            {
+                "ID": "2",
+                "Jobtitle": "UIDesigner",
+                "Education":"BE",
+                "Salary": "2lpa"
+            },
+            {
+                "ID": "3",
+                "Jobtitle": "DatabaseAdministrator",
+                "Education": "M.tech",
+                "Salary": "4lpa"
+            },
+            {
+                "ID": "4",
+                "Jobtitle":"VoiceProcess",
+                "Education": "Inter",
+                "Salary": "2lpa"
+            },
+           {
+                "ID": "5",
+                "Jobtitle":"Non-VoiceProcess",
+                "Education": "Int",
+                "Salary": "1.4lpa"
+            },
+           {
+                "ID": "6",
+                "Jobtitle":"HRRecruiter",
+                "Education": "M.B.A",
+                "Salary": "1.6lpa"
+            },
+            {
+                "ID": "7",
+                "Jobtitle":"DataEntry",
+                "Education": "Any Degree",
+                "Salary": "1lpa"
+            },
+           {
+                "ID": "8",
+                "Jobtitle":"CampusCoordinator",
+                "Education": "M.S.C",
+                "Salary": "6lpa"
+            },
+
+        ];
+
+function queryObject(needle, set){
+    var results = new Array();
+    for(index=0;index<set.length;index++){
+        for(key in set[index]){
+            if(set[index][key].indexOf(needle) > -1){
+                results.push(set[index]);
+            }
+        }
+    }
+
+    if(results.length)
+    {
+results.forEach(function(data)
+{
+
+document.write("ID:"+data.ID+"<br>");
+    document.write("Jobtitle:"+data.Jobtitle+"<br>");
+    document.write("Education:"+data.Education+"<br>");
+    document.write("Salary:"+data.Salary+"<br>");
+    });
+        //return JSON.stringify(results);
+        //return JSON.parse(results);
+    }else
+    {
+        return "No match!";
+    }
+}
+
+</script>
+</head>
+<body>
+<form>
+    <input type="text" id="prompt" onFocus="this.value='';" size="20" onKeyDown="document.getElementById('submit').disabled = false;">
+    <input id="submit" type="button" value="Find in Object" onClick="var prompt=document.getElementById('prompt'); if(prompt.value){document.getElementById('output').innerHTML = queryObject(prompt.value, mySet);}else{prompt.value='Type your query HERE';}" disabled="disabled">
+    <div id="output"></div>
+</form>
+</body>
+</html>

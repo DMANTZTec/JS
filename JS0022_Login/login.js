@@ -11,7 +11,7 @@ return false;
 else if ( username == "form" && password == "formg")
 {
 
-window.location="helo.html";
+window.location="loginSuccess.html";
 }
 else
 {
